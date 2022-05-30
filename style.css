@@ -11,6 +11,15 @@
 
 }
 
+.titulo-pagina-details {
+   text-align: center;
+   height: 15vh;
+   background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
 .titulo-pagina-farmacia {
    text-align: center;
    height: 15vh;
