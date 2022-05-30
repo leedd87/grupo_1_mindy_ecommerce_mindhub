@@ -13,3 +13,10 @@ form{
     height: 180px;
     width: 100%;
 }
+table{
+    border: solid;
+}
+.btnBorrar{
+    background-color: none;
+    border: none;
+}
