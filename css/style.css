@@ -66,3 +66,47 @@ h1 {
     transition: color 0.7s linear 0.2s;
     margin-left: 3rem;
 }
+
+.container-farmacia {
+    background-color: #F8F0DF;
+    min-height: 50vh;
+
+}
+
+.container-juguetes {
+    background-color: #F8F0DF;
+    min-height: 50vh;
+    /*PREGUNTAR MEDIDA*/
+
+}
+
+.titulo-pagina-details {
+    text-align: center;
+    height: 15vh;
+    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titulo-pagina-farmacia {
+    text-align: center;
+    height: 15vh;
+    /* background-color: rgb(185, 230, 208); */
+    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*PREGUNTAR MEDIDA*/
+}
+
+.titulo-pagina-juguetes {
+    text-align: center;
+    height: 15vh;
+    /* background-color: rgb(185, 230, 208); */
+    background-image: url('https://www.hola.com/imagenes/mascotas/20220325206925/perros-significado-juguetes-favoritos-dn/1-67-423/que-significan-juguetes-para-mi-perro-t.jpg');
+    background-position: 75% 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*PREGUNTAR MEDIDA*/
+}
