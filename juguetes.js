@@ -13,14 +13,7 @@ async function getDataApi() {
 
    arrayProductos = dataApi.response
 
-   console.log(arrayProductos)
-
-   let arrayMedicamentos = arrayProductos.filter(element => element.tipo == 'Medicamento')
    let arrayJuguetes = arrayProductos.filter(element => element.tipo == 'Juguete')
-   console.log(arrayMedicamentos)
-   console.log(arrayJuguetes)
-
-   // crearCards(arrayJuguetes)
 
    searchBar.addEventListener('keyup', (e) => {
 
@@ -47,8 +40,6 @@ async function getDataApi() {
 }
 
 getDataApi()
-
-
 
 
 function crearCards(array) {

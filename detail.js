@@ -59,6 +59,8 @@ function imprimirDetails(producto) {
 
 }
 
+
+//-------------NO COPIAR----------------------//
 let arrayCarrito = []
 
 function localStorage() {

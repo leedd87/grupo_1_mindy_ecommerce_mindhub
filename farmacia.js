@@ -11,12 +11,7 @@ async function getDataApi() {
 
    arrayProductos = dataApi.response
 
-   console.log(arrayProductos)
-
    let arrayMedicamentos = arrayProductos.filter(element => element.tipo == 'Medicamento')
-   let arrayJuguetes = arrayProductos.filter(element => element.tipo == 'Juguete')
-   console.log(arrayMedicamentos)
-   console.log(arrayJuguetes)
 
    arrayMedicamentos.forEach(element => {
 
