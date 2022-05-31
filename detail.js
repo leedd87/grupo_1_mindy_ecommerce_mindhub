@@ -39,21 +39,28 @@ async function getDataApi() {
       console.log(selected)
    }
 
-
+   //MINI TARJETASSSSSSS ----------------------------------
    let randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
    let randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
    let randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
 
-   // function funcionArrayRandom(array) {
-   //    array[Math.floor(Math.random() * array.length)]
-   // }
-
    let arrayRandom = [];
    arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
 
-   console.log(arrayRandom)
+   arrayRandom.forEach(element => {
+      if (element._id == dato) {
+         arrayRandom = [];
+         console.log(arrayRandom)
+         randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
+         randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
+         randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
+         arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
+         console.log(arrayRandom)
+      }
+   })
 
    imprimirMiniDetails(arrayRandom)
+   //HASTA ACAAAAA POR DENTRO DE LA ASYNC ------------------------
 }
 
 getDataApi()
@@ -92,7 +99,8 @@ function imprimirDetails(producto) {
    containedorDetail.innerHTML = templateDetail;
 
 }
-/*-------------AGREGADO-----------------------*/
+
+/*-------------AGREGADO-------------------POR FUERA DE LA ASYNC----*/
 function imprimirMiniDetails(array) {
    let templateMini = ''
 
@@ -111,20 +119,4 @@ function imprimirMiniDetails(array) {
 
       containerMiniDetails.innerHTML = templateMini
    })
-}
-
-
-//-------------NO COPIAR----------------------//
-let arrayCarrito = []
-
-function localStorage() {
-
-   localStorage.setItem('carrito', JSON.stringify(arrayCarrito))
-
-}
-
-function clickee() {
-   console.log(dato)
-   arrayCarrito.push(dato)
-   localStorage.setItem('carrito', JSON.stringify(arrayCarrito))
 }
