@@ -4,6 +4,9 @@ let dataApi;
 let arrayProductos;
 let dato
 let selected;
+let cantidad = 1
+let idArticulo = []
+let producto
 
 async function getDataApi() {
 
@@ -13,33 +16,22 @@ async function getDataApi() {
 
    arrayProductos = dataApi.response
 
-   console.log(arrayProductos)
-
    dato = location.search.split('?id=')[1]
 
-   let producto = arrayProductos.find(element => {
+   producto = arrayProductos.find(element => {
 
       return element._id == dato
    })
 
-
-
    imprimirDetails(producto)
 
-
-   let select = document.getElementById('selected')
-   select.addEventListener('change', (evento) => {
-      console.log(evento)
-      capturaSelect(evento)
+   let select = document.querySelector('.cantidad')
+   select.addEventListener('change', e => {
+      cantidad = Number(e.target.value)
    })
 
 
-   function capturaSelect(evento) {
-      selected = evento.target.value
-      console.log(selected)
-   }
 
-   //MINI TARJETASSSSSSS ----------------------------------
    let randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
    let randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
    let randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
@@ -47,25 +39,22 @@ async function getDataApi() {
    let arrayRandom = [];
    arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
 
-   arrayRandom.forEach(element => {
-      if (element._id == dato) {
-         arrayRandom = [];
-         console.log(arrayRandom)
-         randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
-         randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
-         randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
-         arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
-         console.log(arrayRandom)
-      }
-   })
 
    imprimirMiniDetails(arrayRandom)
-   //HASTA ACAAAAA POR DENTRO DE LA ASYNC ------------------------
 }
 
 getDataApi()
 
 function imprimirDetails(producto) {
+
+   let templateDetail2 = ""
+   for (i = 0; i < producto.stock; i++) {
+      if (i < 10) {
+         templateDetail2 += `
+      <option value="${i + 1}">${i + 1}</option>
+      `
+      }
+   }
 
    let templateDetail = `
    <div class="container d-flex justify-content-center align-items-center mt-5">
@@ -82,25 +71,60 @@ function imprimirDetails(producto) {
                <p class="card-text">${producto.descripcion}</p>
                <p>$${producto.precio}</p>
                <p>Cantidad: ${producto.stock}</p>
-               <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-               <button onclick='clickee()'>Agregar al Carrito</button>
-               <select name="select" id="selected">
-               <option value="1">1 unidades</option>
-               <option value="2">2 unidades</option>
-               <option value="3">3 unidades</option>
-            </select>
+               <button onclick='clickee()'><a href='carrito.html'>Agregar al Carrito</a></button>
+               <select class="form-select cantidad" aria-label="Default select example">
+   ${templateDetail2}
+               </select>
+               
             </div>
          </div>
       </div>
    </div>
    </div>
-
    `
    containedorDetail.innerHTML = templateDetail;
 
 }
 
-/*-------------AGREGADO-------------------POR FUERA DE LA ASYNC----*/
+let arrayCarrito = [];
+
+function clickee() {
+   if ((localStorage.getItem("carrito"))) {
+      arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
+      idArticulo = arrayCarrito.map(e => e.id)
+   }
+   if (idArticulo.indexOf(dato) !== -1) {
+      if (arrayCarrito[idArticulo.indexOf(dato)].stockActualizado <= 0) {
+         alert('Llego al limite de stock')
+      } else {
+         let resultado = arrayCarrito[idArticulo.indexOf(dato)].stockActualizado - cantidad
+         if (resultado < 0) {
+            alert('Llego al limite de stock')
+         } else {
+            arrayCarrito[idArticulo.indexOf(dato)].cantidad += cantidad
+            arrayCarrito[idArticulo.indexOf(dato)].stockActualizado -= cantidad
+         }
+      }
+
+   } else {
+      arrayCarrito.push({
+         'id': dato,
+         'cantidad': cantidad,
+         'stockActualizado': producto.stock - cantidad
+      })
+   }
+
+   localStorage.setItem('carrito', JSON.stringify(arrayCarrito))
+
+}
+
+
+
+
+
+
+
+/*-------------AGREGADO-----------------------*/
 function imprimirMiniDetails(array) {
    let templateMini = ''
 
@@ -112,7 +136,7 @@ function imprimirMiniDetails(array) {
    <h4 class="card-title pb-3">$${element.precio}</4>
    <h6 class="card-text pb-3">${element.nombre}</h6>
    <div class="d-flex justify-content-center">
-   <a href="./javascript/agustinDetalles.js?id=${element._id}" class="btn btn-primary">Ver más</a>
+   <a href="./detalles.html?id=${element._id}" class="btn btn-primary">Ver más</a>
    </div>
    </div>
    </div>`
