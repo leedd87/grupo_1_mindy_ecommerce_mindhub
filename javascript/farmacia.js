@@ -1,7 +1,9 @@
 let contenedorFarmacia = document.getElementById('contenedorFarmacia')
+
 let templateCard = ''
 let dataApi;
 let arrayProductos;
+
 
 async function getDataApi() {
 

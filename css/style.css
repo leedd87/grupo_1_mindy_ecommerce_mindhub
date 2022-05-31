@@ -12,8 +12,22 @@ header {
     justify-content: space-around;
     background-color: rgb(128, 193, 200);
     height: 10rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.658);
+    box-shadow: 0 10px 17px -5px #000000;
+    
 }
 
+h1{
+    font-size: 3rem;
+    transition: 1s;
+    
+}
+
+h1:hover{ 
+    color: rgb(black);
+    font-size: 5rem;
+    transition: 1s;
+}
 
 nav a {
     color: BLACK;
@@ -42,7 +56,7 @@ nav a:hover {
 
 .contenedorPadre {
     width: 100%;
-    margin-top: 100px;
+    padding: .5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background: linear-gradient(to left, #faa307, #f48c06);
 }
@@ -245,9 +259,6 @@ form {
     width: 100%;
 }
 
-/* CONTACTO */
-
-
 
 /* FARMACIA */
 
@@ -261,7 +272,8 @@ form {
 
 .titulo-pagina-farmacia {
     text-align: center;
-    height: 15vh;
+    height: 35vh;
+    color: white;
     /* background-color: rgb(185, 230, 208); */
     background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
     background-position: center;
@@ -283,19 +295,30 @@ form {
     /*PREGUNTAR MEDIDA*/
 }
 
-.titulo-pagina-juguetes {
+.titulo-juguete {
     text-align: center;
-    height: 20vh;
-    background-image: url('https://www.hola.com/imagenes/mascotas/20220325206925/perros-significado-juguetes-favoritos-dn/1-67-423/que-significan-juguetes-para-mi-perro-t.jpg');
-    /* background-position: 75% 25%; */
+    height: 35vh;
+    color: white;
+    background-image: url(../img/gatojugando.JPG);
+    background-position: 75% 25%;
     background-repeat: no-repeat;
     background-size: cover;
     /*PREGUNTAR MEDIDA*/
 }
 
+.carousel{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-position: end;
+}
+
 
 /* CARDS */
 
+.buscador{
+    background-color: rgb(208, 201, 192);
+}
 .card {
     transform: translateY(15px);
     transition: all 1s;
@@ -304,7 +327,7 @@ form {
 }
 
 .card:hover {
-    box-shadow: 1rem 1rem rgba(189, 189, 189, 0.479);
+    box-shadow: 1rem 1rem rgba(68, 60, 60, 0.479);
     transform: translateY(-15px);
     transition: all 1s;
     border-radius: .5rem;
@@ -313,6 +336,7 @@ form {
 .ultimas-unidades {
     background-color: red;
     color:white;
+    font-weight: bolder;
     text-align: center;
     border-radius: 5px;
 
@@ -333,6 +357,22 @@ form {
     min-height: 70vh;
 }
 
+/* DETALLES */
+
+
+.titulo-pagina-details {
+    text-align: center;
+    height: 15vh;
+    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-detail {
+    width: 30rem;
+}
+
 /* FOOTER */
 
 footer {
@@ -341,6 +381,8 @@ footer {
     justify-content: space-between;
     background-color: rgb(208, 201, 192);
     min-height: 15vh;
+    padding: 1rem;
+    border-top: solid black 1px;
 }
 
 .logofooter {
@@ -366,14 +408,8 @@ footer {
 }
 
 .aredsocial {
-    margin: .7rem;
+    margin: .5rem;
 }
-
-
-
-
-
-
 
 /* ....DAVID CSS... */
 
@@ -382,18 +418,6 @@ footer {
     min-height: 50vh;
 
 } */
-
-
-
-.titulo-pagina-details {
-    text-align: center;
-    height: 15vh;
-    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 
 
 
@@ -408,10 +432,4 @@ footer {
 } */
 
 
-
-.img-detail {
-    width: 30rem;
-
-
-}
 
