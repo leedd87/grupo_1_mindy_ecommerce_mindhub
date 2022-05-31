@@ -253,13 +253,6 @@ nav a:hover {
 
 /* MAIN DOLORES */
 
-/* / .contedor_nosotros_visitas{
-    height: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} / */
 .contenedor_nosotros, .contenedor_visitanos{
     display: flex;
     justify-content: center;
