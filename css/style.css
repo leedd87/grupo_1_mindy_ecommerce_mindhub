@@ -142,3 +142,8 @@ h1 {
 .card-detail {
     max-width: 1040px;
 }
+
+.mini-card {
+    width: 300px;
+    height: 100px;
+}

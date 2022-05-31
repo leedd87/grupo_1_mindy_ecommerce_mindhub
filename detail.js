@@ -2,6 +2,7 @@ let dataApi;
 let arrayProductos;
 let containedorDetail = document.getElementById('container-detail')
 let dato
+let selected;
 
 async function getDataApi() {
 
@@ -20,8 +21,22 @@ async function getDataApi() {
       return element._id == dato
    })
 
+
+
    imprimirDetails(producto)
 
+
+   let select = document.getElementById('selected')
+   select.addEventListener('change', (evento) => {
+      console.log(evento)
+      capturaSelect(evento)
+   })
+
+
+   function capturaSelect(evento) {
+      selected = evento.target.value
+      console.log(selected)
+   }
 
 }
 
@@ -46,6 +61,11 @@ function imprimirDetails(producto) {
                <p>Cantidad: ${producto.stock}</p>
                <a href="#" class="btn btn-primary">Agregar al Carrito</a>
                <button onclick='clickee()'>Agregar al Carrito</button>
+               <select name="select" id="selected">
+               <option value="1">1 unidades</option>
+               <option value="2">2 unidades</option>
+               <option value="3">3 unidades</option>
+            </select>
             </div>
          </div>
       </div>
