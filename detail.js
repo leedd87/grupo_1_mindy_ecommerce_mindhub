@@ -1,6 +1,7 @@
+let containerMiniDetails = document.getElementById('mini-container-details')
+let containedorDetail = document.getElementById('container-detail')
 let dataApi;
 let arrayProductos;
-let containedorDetail = document.getElementById('container-detail')
 let dato
 let selected;
 
@@ -38,6 +39,21 @@ async function getDataApi() {
       console.log(selected)
    }
 
+
+   let randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
+   let randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
+   let randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
+
+   // function funcionArrayRandom(array) {
+   //    array[Math.floor(Math.random() * array.length)]
+   // }
+
+   let arrayRandom = [];
+   arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
+
+   console.log(arrayRandom)
+
+   imprimirMiniDetails(arrayRandom)
 }
 
 getDataApi()
@@ -75,8 +91,26 @@ function imprimirDetails(producto) {
    `
    containedorDetail.innerHTML = templateDetail;
 
+}
+/*-------------AGREGADO-----------------------*/
+function imprimirMiniDetails(array) {
+   let templateMini = ''
 
+   array.forEach(element => {
 
+      templateMini += `<div class="mini-card">
+   <img src="${element.imagen}" class="card-img-top border" alt="${element.nombre}">
+   <div class="card-body">
+   <h4 class="card-title pb-3">$${element.precio}</4>
+   <h6 class="card-text pb-3">${element.nombre}</h6>
+   <div class="d-flex justify-content-center">
+   <a href="./details.html?id=${element._id}" class="btn btn-primary">Ver más</a>
+   </div>
+   </div>
+   </div>`
+
+      containerMiniDetails.innerHTML = templateMini
+   })
 }
 
 

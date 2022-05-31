@@ -145,5 +145,16 @@ h1 {
 
 .mini-card {
     width: 300px;
-    height: 100px;
+    height: 350px;
+    border: solid 1px grey;
+    border-radius: 5px;
+}
+
+.mini-card>img {
+    height: 10rem;
+    object-fit: contain;
+}
+
+.mini-container {
+    height: 350px;
 }
