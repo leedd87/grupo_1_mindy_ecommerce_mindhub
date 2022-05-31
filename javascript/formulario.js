@@ -5,5 +5,5 @@ botonSubir.addEventListener("submit",e=>alerta(e));
 function alerta(e){
     e.preventDefault();
 
-    swal("Su mensaje fue enviado correctamente, ¡Gracias por escribirnos!");
+    swal("Mensaje enviado","Su mensaje fue enviado correctamente, ¡Gracias por escribirnos!" , "success");
 }

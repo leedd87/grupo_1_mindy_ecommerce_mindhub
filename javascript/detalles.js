@@ -4,6 +4,9 @@ let dataApi;
 let arrayProductos;
 let dato
 let selected;
+let cantidad = 1
+let idArticulo = []
+let producto
 
 async function getDataApi() {
 
@@ -13,45 +16,29 @@ async function getDataApi() {
 
     arrayProductos = dataApi.response
 
-    console.log(arrayProductos)
-
     dato = location.search.split('?id=')[1]
 
-    let producto = arrayProductos.find(element => {
+    producto = arrayProductos.find(element => {
 
         return element._id == dato
     })
 
-
-
     imprimirDetails(producto)
 
-
-    let select = document.getElementById('selected')
-    select.addEventListener('change', (evento) => {
-        console.log(evento)
-        capturaSelect(evento)
+    let select = document.querySelector('.cantidad')
+    select.addEventListener('change', e => {
+        cantidad = Number(e.target.value)
     })
 
-
-    function capturaSelect(evento) {
-        selected = evento.target.value
-        console.log(selected)
-    }
 
 
     let randomNumber = [Math.floor(Math.random() * arrayProductos.length)]
     let randomNumberDos = [Math.floor(Math.random() * arrayProductos.length)]
     let randomNumberTres = [Math.floor(Math.random() * arrayProductos.length)]
 
-    // function funcionArrayRandom(array) {
-    //    array[Math.floor(Math.random() * array.length)]
-    // }
-
     let arrayRandom = [];
     arrayRandom.push(arrayProductos[randomNumber], arrayProductos[randomNumberDos], arrayProductos[randomNumberTres])
 
-    console.log(arrayRandom)
 
     imprimirMiniDetails(arrayRandom)
 }
@@ -60,53 +47,93 @@ getDataApi()
 
 function imprimirDetails(producto) {
 
+    let templateDetail2 = ""
+    for (i = 0; i < producto.stock; i++) {
+        if (i < 10) {
+            templateDetail2 += `
+        <option value="${i + 1}">${i + 1}</option>
+        `
+        }
+    }
+
     let templateDetail = `
-   <div class="container d-flex justify-content-center align-items-center mt-5">
-   <div class="card mb-3 card-detail">
-      <div class="row g-0 align-items-center justify-content-center flex-lg-nowrap ">
-         <div class="col-md-6 img-detail">
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card mb-3 card-detail">
+    <div class="row g-0 align-items-center justify-content-center flex-lg-nowrap ">
+        <div class="col-md-6 img-detail">
             <img
-               src="${producto.imagen}"
-               class="img-fluid rounded-start" alt="${producto.nombre}">
-         </div>
-         <div class="col-md-6">
+            src="${producto.imagen}"
+            class="img-fluid rounded-start" alt="${producto.nombre}">
+        </div>
+        <div class="col-md-6">
             <div class="card-body pb-5 pb-lg-0">
-               <h5 class="card-title">${producto.nombre}</h5>
-               <p class="card-text">${producto.descripcion}</p>
-               <p>$${producto.precio}</p>
-               <p>Cantidad: ${producto.stock}</p>
-               <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-               <button onclick='clickee()'>Agregar al Carrito</button>
-               <select name="select" id="selected">
-               <option value="1">1 unidades</option>
-               <option value="2">2 unidades</option>
-               <option value="3">3 unidades</option>
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.descripcion}</p>
+            <p>$${producto.precio}</p>
+            <p>Cantidad: ${producto.stock}</p>
+            <button onclick='clickee()'><a href='carrito.html'>Agregar al Carrito</a></button>
+            <select class="form-select cantidad" aria-label="Default select example">
+    ${templateDetail2}
             </select>
+            
             </div>
-         </div>
-      </div>
-   </div>
-   </div>
-   `
+        </div>
+    </div>
+    </div>
+    </div>
+    `
     containedorDetail.innerHTML = templateDetail;
 
 }
-/*-------------AGREGADO-----------------------*/
+
+let arrayCarrito = [];
+
+function clickee() {
+    if ((localStorage.getItem("carrito"))) {
+        arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
+        idArticulo = arrayCarrito.map(e => e.id)
+    }
+    if (idArticulo.indexOf(dato) !== -1) {
+        if (arrayCarrito[idArticulo.indexOf(dato)].stockActualizado <= 0) {
+            swal("Atencion","Llego al limite de stock", "error")
+        } else {
+            let resultado = arrayCarrito[idArticulo.indexOf(dato)].stockActualizado - cantidad
+            if (resultado < 0) {
+                swal("Atencion","Llego al limite de stock", "error")
+            } else {
+                arrayCarrito[idArticulo.indexOf(dato)].cantidad += cantidad
+                arrayCarrito[idArticulo.indexOf(dato)].stockActualizado -= cantidad
+            }
+        }
+
+    } else {
+        arrayCarrito.push({
+            'id': dato,
+            'cantidad': cantidad,
+            'stockActualizado': producto.stock - cantidad
+        })
+    }
+
+    localStorage.setItem('carrito', JSON.stringify(arrayCarrito))
+
+}
+
+
 function imprimirMiniDetails(array) {
     let templateMini = ''
 
     array.forEach(element => {
 
         templateMini += `<div class="mini-card">
-   <img src="${element.imagen}" class="card-img-top border" alt="${element.nombre}">
-   <div class="card-body">
-   <h4 class="card-title pb-3">$${element.precio}</4>
-   <h6 class="card-text pb-3">${element.nombre}</h6>
-   <div class="d-flex justify-content-center">
-   <a href="./details.html?id=${element._id}" class="btn btn-primary">Ver más</a>
-   </div>
-   </div>
-   </div>`
+    <img src="${element.imagen}" class="card-img-top border" alt="${element.nombre}">
+    <div class="card-body">
+    <h4 class="card-title pb-3">$${element.precio}</4>
+    <h6 class="card-text pb-3">${element.nombre}</h6>
+    <div class="d-flex justify-content-center">
+    <a href="./detalles.html?id=${element._id}" class="btn btn-primary">Ver más</a>
+    </div>
+    </div>
+    </div>`
 
         containerMiniDetails.innerHTML = templateMini
     })

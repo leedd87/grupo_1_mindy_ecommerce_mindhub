@@ -29,7 +29,7 @@ async function getDataApi() {
             <h4 class="card-title mb-3">$${element.precio}</4>
                <h6 class="card-text mb-3">${element.nombre}</h6>
                <div class="d-flex justify-content-center">
-                  <a href="./html/detalles.html?id=${element._id}" class="btn btn-primary">Ver más</a>
+                  <a href="./agustinDetalles.html?id=${element._id}" class="btn btn-primary">Ver más</a>
                </div>
          </div>
       </div>
@@ -81,7 +81,7 @@ function crearCards(array) {
       <h4 class="card-title mb-3">$${element.precio}</4>
       <h6 class="card-text mb-3">${element.nombre}</h6>
       <div class="d-flex justify-content-center">
-      <a href="./details.html?id=${element._id}" class="btn btn-primary">Ver más</a>
+      <a href="./detalles.html?id=${element._id}" class="btn btn-primary">Ver más</a>
       </div>
       </div>
       </div>
