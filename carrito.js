@@ -1,7 +1,7 @@
 let articulos=[]
 let idArticulo
-
 let artCarrito = []
+
 async function getDatafromAPI() {
     articulos= []
     artCarrito = []
@@ -18,17 +18,12 @@ async function getDatafromAPI() {
         });
     }
     else { artCarrito = [] }
-
-    console.log(artCarrito)
-
     let articul = []
     artCarrito.forEach(e=>{
         articul = local.filter(i =>e._id == i.id)[0]
         e.cantidadSeleccionada = articul.cantidad;
     } )
-    console.log(artCarrito)
-    console.log(articul)
-    displayCarrito(artCarrito,local)
+    displayCarrito(artCarrito)
 
 }
 getDatafromAPI()

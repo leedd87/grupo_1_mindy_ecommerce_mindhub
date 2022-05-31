@@ -5,6 +5,7 @@ let dato
 let cantidad = 1
 let idArticulo = []
 let producto
+
 async function getDataApi() {
 
    await fetch('https://apipetshop.herokuapp.com/api/articulos')
@@ -12,25 +13,17 @@ async function getDataApi() {
       .then(json => dataApi = json)
 
    arrayProductos = dataApi.response
-
-   console.log(arrayProductos)
-
    dato = location.search.split('?id=')[1]
-
    producto = arrayProductos.find(element => {
-
       return element._id == dato
    })
 
    imprimirDetails(producto)
-
+   
    let select = document.querySelector('.cantidad')
    select.addEventListener('change', e => {
       cantidad = Number(e.target.value)
    })
-
-
-
 }
 
 getDataApi()
@@ -63,29 +56,23 @@ function imprimirDetails(producto) {
                <button onclick='clickee()'><a href='carrito.html'>Agregar al Carrito</a></button>
                <select class="form-select cantidad" aria-label="Default select example">
    ${templateDetail2}
-   </select>
+               </select>
             </div>
          </div>
       </div>
    </div>
    </div>
-
    `
    containedorDetail.innerHTML = templateDetail;
 }
 
 let arrayCarrito = [];
-
 function clickee(){
    if ((localStorage.getItem("carrito"))){
       arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
       idArticulo = arrayCarrito.map(e=>e.id)
-      
    }
-// suma un click de mas, pero suma.
    if (idArticulo.indexOf(dato) !== -1)  {
-      console.log(arrayCarrito[idArticulo.indexOf(dato)])
-      console.log(producto.stock)
       if (arrayCarrito[idArticulo.indexOf(dato)].stockActualizado <= 0){
          alert('Llego al limite de stock')
       }
@@ -98,7 +85,6 @@ function clickee(){
             arrayCarrito[idArticulo.indexOf(dato)].cantidad += cantidad
             arrayCarrito[idArticulo.indexOf(dato)].stockActualizado -= cantidad
          }
-
       }
       
    }
