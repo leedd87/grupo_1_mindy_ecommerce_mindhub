@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* .contedor_nosotros_visitas{
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+/* .contenedor_nosotros, .contenedor_visitanos{
+    border: solid black 1px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+.txt_nosotros, .txt_visitanos{
+    width: 100%;
+    padding: 5rem;
+}
+.contenido_texto{
+    text-align: justify;
+    line-height: 1.4;
+}
+.contenedor_img{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+    
+}
+.img_mascota_jugando{
+    height: 12rem;
+    width: 20rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+}
+/* .img_mascota_jugando :hover{
+} */
+
+
+
+
+

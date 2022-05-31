@@ -11,6 +11,9 @@
       rel="stylesheet">
    <link rel="shortcut icon" href="../img/favdog.ico" type="image/x-icon">
    <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin="" />
    <title>Inicio</title>
 </head>
 
@@ -44,6 +47,8 @@
    <!-- CUERPO -->
 
    <main>
+      <div class="general_main">
+
       <div class="contenedorPadre">
          <div class="contenedorSecundario">
             <div class="contenedor-bienvenido">
@@ -82,12 +87,65 @@
             <img class="img-index" src="../img/sc.jpg" alt="foto-conej">
          </div>
          <div class="galeria-item">
-            <img class="img-index" src="../img/pexels-samer-daboul-1216482" alt="foto-conej">
+            <img class="img-index" src="../img/perritojugando.JPG" alt="foto-conej">
          </div>
          <div class="galeria-item">
             <img class="img-index" src="../img/gatosiames" alt="foto-conej">
          </div>
+         <!-- <div class="galeria-item">
+            <img class="img-index" src="../img/sc.jpg" alt="foto-conej">
+         </div>
+         <div class="galeria-item">
+            <img class="img-index" src="../img/pexels-samer-daboul-1216482" alt="foto-conej">
+         </div>
+         <div class="galeria-item">
+            <img class="img-index" src="../img/gatosiames" alt="foto-conej">
+         </div> -->
       </div>
+
+      <div class="contedor_nosotros_visitas">
+         <div class="contenedor_nosotros">
+            <div class="txt_nosotros">
+               <h2 class="pt-5">Nosotros</h2>
+               <p class="contenido_texto">
+                  Somos una Empresa joven, dedicada a la venta de accesorios y elementos para mascotas.
+               </p>
+               <p class="contenido_texto">
+                  Nuestra finalidad es satisfacer tus necesidades y las de tu mascota, ofreciendote una amplia variedad
+                  de productos,
+                  que hacemos que lleguen hasta tu casa, para que le dediques más tiempo y le brindes tu compañía.
+               </p>
+               <p class="contenido_texto">
+                  Con este fin, nacio Mindy para dar un servicio confiable y supremo. El nombre se lo dimos por nuestra
+                  adorada perrita que,
+                  cotidianamente, nos divierte con sus travesuras y nos inspira a estar cada día más comprometidos
+                  con llegar a todos los hogares donde habite un animal.
+               </p>
+            </div>
+         </div>
+         <div class="contenedor_img d-flex row">
+            <img src="../img/jugar-perro-casa-768x510.jpg" alt="mascota_jugando" class="img_mascota_jugando">
+            <img src="../img/perro-con-familia.jpg" alt="imagen_familia" class="img_mascota_jugando">
+            <img src="../img/perro-juguetes-mirando-arriba.jpg" alt="mascota" class="img_mascota_jugando">
+            <img src="../img/gato-hilo.jpg" alt="mascota" class="img_mascota_jugando">
+         </div>
+
+         <div class="contenedor_visitanos">
+            <div class="txt_visitanos">
+               <h2>Visitanos</h2>
+               <p class="contenido_texto">
+                  Nuestra tienda física se encuentra ubicada en Rio de Janeiro 300 (Caballito) Buenos Aires, Argentina,
+                  la cual pueden
+                  concurrir para visitarla y adquirir los productos de manera presencial si así lo desean.
+               </p>
+            </div>
+            
+         </div>
+      </div>
+
+   </div>
+
+      <div id="map"></div>
    </main>
 
    <!-- FOOTER -->
@@ -136,7 +194,13 @@
       </div>
 
    </footer>
-
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""></script>
+   <script src="../javascript/contacto.js"></script>
 </body>
 
 </html>
