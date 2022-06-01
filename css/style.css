@@ -1,0 +1,663 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Encabezado */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(128, 193, 200);
+    height: 10rem;
+
+
+}
+
+h1{
+    font-size: 3rem;
+    transition: .5s;
+
+}
+
+h1:hover{
+    color: rgb(black);
+    font-size: 5rem;
+    transition: .5s;
+}
+
+nav a {
+    color: BLACK;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: .5rem;
+    margin-right: 2rem;
+    transition: all .5s;
+}
+
+nav a:hover {
+    transition: all .5s;
+    background-color: rgb(255, 211, 0);
+    color: black;
+    padding: .5rem;
+
+}
+.logo {
+    width: 18%;
+    z-index: 1;
+    margin-left: 6rem;
+}
+
+
+/* Cuerpo */
+
+.general_main{
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/fondomainn);
+}
+
+main{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.contenedorPadre {
+    width: 100%;
+    padding: .5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: rgb(228 212 185);
+}
+
+.contenedorSecundario {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-image: url();
+}
+
+.contenedor-bienvenido {
+    flex-direction: column;
+    max-width: 400px;
+    margin-top: 40px;
+    z-index: 2;
+}
+
+.contenedorPadre h1 {
+    max-width: 400px;
+    font-size: 60px;
+    font-weight: 900;
+    color: rgb(28, 28, 28);
+}
+
+.contenedorPadre h2 {
+    font-size: 60px;
+    font-weight: 900;
+    color: rgb(249, 249, 246);
+    margin-top: -20px;
+}
+
+.contenedorPadre p {
+    margin-top: 10px;
+    color: rgb(31, 28, 28);
+}
+
+.contenedor-img {
+    position: relative;
+}
+
+.contenedor-img img {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 600px;
+    animation: movimiento_vector 6s ease-in-out infinite;
+    transition: all 300ms;
+}
+
+
+@keyframes movimiento_vector {
+    0% {
+        transform: translateY(10px);
+    }
+
+    25% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+.img-index{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeria {
+    width: 85%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 133px);
+    grid-auto-rows: 200px;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 5rem;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+
+.galeria-item {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    grid-column: span 2;
+    height: 282px;
+    transition: 0.5s filter;
+}
+
+.galeria-item:hover {
+    filter: brightness(0.3);
+}
+
+.galeria-item:first-of-type {
+    grid-column: 2 / span 2;
+}
+
+
+@media (max-width:460px) {
+    .contenedorPadre h1{
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width:460px) {
+    .contenedorPadre h2 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 505px) and (max-width: 685px) {
+    .galeria-item:nth-of-type(10n + 1){
+        grid-column: 2 / span 2;
+    }
+
+    .contenedor-img img {
+        transform: scale(0);
+        animation: none;
+    }
+    .logo{
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 270px) and (max-width: 504px) {
+    .galeria-item:first-of-type {
+        grid-column: 1 / span 2;
+    }
+
+    .galeria {
+        grid-auto-rows: 282px;
+    }
+
+    .contenedor-img img {
+        transform: scale(0);
+        animation: none;
+    }
+    .logo{
+        width: 50%;
+    }
+    .tabla{
+        width: 80vw;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 505px) and (max-width: 685px) {
+    .galeria-item:nth-of-type(odd) {
+        grid-column: 2 / span 2;
+    }
+
+    .contenedor-img img {
+        transform: scale(0);
+        animation: none;
+    }
+}
+
+@media screen and (min-width: 686px) and (max-width: 862px) {
+    .galeria-item:nth-of-type(3n + 1) {
+        grid-column: 2 / span 2;
+    }
+
+    .contenedor-img img {
+        width: 500px;
+    }
+    .logo{
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 863px) and (max-width: 1038px) {
+    .galeria-item:nth-of-type(4n + 1) {
+        grid-column: 2 / span 2;
+    }
+}
+
+@media screen and (min-width: 1039px) and (max-width: 1215px) {
+    .galeria-item:nth-of-type(5n + 1) {
+        grid-column: 2 / span 2;
+    }
+
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1291px) {
+    .galeria-item:nth-of-type(6n + 1) {
+        grid-column: 2 / span 2;
+    }
+}
+
+@media screen and (min-width: 1292px) {
+    .galeria-item:nth-of-type(7n + 1) {
+        grid-column: 2 / span 2;
+    }
+}
+
+/* MAIN DOLORES */
+
+.contenedor_marcas{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    padding:1rem;
+    flex-wrap: wrap ;
+
+}
+.img_marcas{
+    height: 100px ;
+}
+
+.contenedor_nosotros, .contenedor_visitanos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    backdrop-filter: blur(10px);
+    width: 70%;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.contedor_nosotros_visitas{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.txt_nosotros, .txt_visitanos{
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.contenido_texto{
+    text-align: justify;
+    line-height: 1.3;
+}
+.contenedor-carousel{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.5rem;
+
+}
+.img_mascota_jugando{
+    height: 12rem;
+    width: 20rem;
+    border-radius: 0.2rem;
+    padding: rem;
+}
+/* / .img_mascota_jugando :hover{
+} */
+
+
+/* CONTACTO */
+
+h1.contact-tittle {
+    opacity: 70%;
+    font-size: 4rem;
+    font-family: 'Signika Negative', sans-serif;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5rem;
+    transition: all .5s
+}
+
+.contact_main {
+    background-image: url(../img/fondomainn);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 48rem;
+    background-color: rgb(228, 212, 185);
+}
+
+form {
+    width: 70%;
+}
+
+#map {
+    height: 180px;
+    width: 100%;
+}
+
+
+/* FARMACIA */
+
+.main_farmacia{
+    background-image: url(../img/fondomainn);
+}
+
+.container-farmacia {
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+}
+
+.titulo-pagina-farmacia {
+    text-align: center;
+    height: 35vh;
+    color: white;
+    /* background-color: rgb(185, 230, 208); */
+    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*PREGUNTAR MEDIDA*/
+}
+
+/* JUGUETES */
+
+.main_juguetes{
+    background-color:rgb(228, 212, 185);
+    background-image: url(../img/fondomainn);
+    min-height: 50vh;
+}
+#contenedorJuguete{
+    min-height: 30vh;
+}
+.container-juguetes {
+    background-color: #F8F0DF;
+    min-height: 30vh;
+    /*PREGUNTAR MEDIDA*/
+}
+
+.titulo-juguete {
+    text-align: center;
+    height: 35vh;
+    color: white;
+    background-image: url(../img/gatojugando.JPG);
+    background-position: 75% 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*PREGUNTAR MEDIDA*/
+}
+
+.carousel{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    /* background-position: end; */
+}
+
+
+/* CARDS */
+
+.buscador{
+    background-color: rgb(208, 201, 192);
+}
+.card {
+    transform: translateY(15px);
+    transition: all .5s;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    background: none;
+    backdrop-filter: blur(10px);
+    height: 35rem;
+    border-radius: .5rem;
+}
+
+.card:hover {
+    box-shadow: 1rem 1rem rgba(68, 60, 60, 0.479);
+    transform: translateY(-8px);
+    transition: all .5s;
+    border-radius: .5rem;
+}
+
+.ultimas-unidades {
+    background-color: red;
+    color:white;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+.card>img {
+    object-fit: contain;
+    background-color: white;
+    border-radius: .5rem;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+
+/* CARRITO */
+
+.main-carrito {
+    /* background-color:rgb(228, 212, 185) ; */
+    min-height: 70vh;
+    background-image: url(../img/fondomainn);
+}
+
+/* DETALLES */
+
+
+.titulo-pagina-details {
+    text-align: center;
+    height: 15vh;
+    background-image: url('https://escuelafarmacia.com/wp-content/uploads/cl%C3%ADnica-veterinaria.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-detail {
+    width: 40%;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(208, 201, 192);
+    min-height: 15vh;
+    padding: 1rem;
+}
+
+.logofooter {
+    width: 15rem;
+}
+
+.imgfooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datosfooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redesfooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aredsocial {
+    margin: .5rem;
+}
+.btnBorrar{
+    background: none;
+    border: none;
+}
+
+.table{
+    background: none;
+    backdrop-filter: blur(10px);
+    border: 5px;
+}
+.contenedor-tabla{
+    display: flex;
+    width: 100vw;
+}
+
+.mini-card{
+    transform: translateY(15px);
+    transition: all .5s;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    background: none;
+    backdrop-filter: blur(10px);
+    height: 20rem;
+    border-radius: .5rem;
+}
+.mini-card img{
+    height: 50%;
+    object-fit: contain;
+    background-color: white;
+}
+.main-detalles{
+    background-image: url(/img/fondomainn);
+}
+.mini-card:hover {
+    box-shadow: 1rem 1rem rgba(68, 60, 60, 0.479);
+    transform: translateY(-8px);
+    transition: all .5s;
+    border-radius: .5rem;
+}
+.card-detail{
+    padding: 2rem;
+    display: flex;
+    height: auto;
+}
+.container-detail{
+    padding-bottom: 5rem;
+}
+
+
+.card-detail button {
+    background-color: antiquewhite;
+    border-radius: 1rem;
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+.card-detail a{
+    text-decoration: none;
+    color: black;
+}
+.titulo-detalles{
+    text-align: center;
+    height: 35vh;
+    color: white;
+    background-image: url(../img/perritojugando.JPG);
+    background-position: 75% 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.redes{
+    width: 18rem;
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    background-color: rgb(228 212 185)!important;
+    color: black;
+    border: solid black ;
+}
+.carousel{
+    height: auto;
+}
+@media screen and (max-width:768px) {
+    footer{
+        flex-direction: column;
+        gap: 1rem;
+        justify-content :center;
+        align-items: center;
+    }
+    .datosfooter{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .redesfooter{
+        text-align: center;
+    }
+    .card img{
+        height: 50%;
+    }
+    .card{
+        height: auto;
+    }
+}
+
+@media screen and (max-width : 985px){
+    .navbardesktop {display: none!important;}
+}
+@media screen and (min-width : 985px){
+    .navbarmobile {display: none;}
+}
+.navbarmobile{
+    position: absolute;
+    background: none;
+    right: 3rem;
+}
+.navbarmobile button{
+    background-color: bisque;
+}
+
+@media screen and (max-width : 320px){
+    .logo{transform: translateX(-55%);}
+}
+.mini-container{
+    padding-bottom: 3rem;
+}
+@media screen and (max-width : 768px){
+    .mini-container{ display: none!important}
+}
