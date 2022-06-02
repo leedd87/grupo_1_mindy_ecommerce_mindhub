@@ -613,6 +613,56 @@ footer {
 .carousel{
     height: auto;
 }
+.contenedor-carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    gap : 2rem;
+    width: 40rem;
+}
+.card-carrito{
+    padding: .5rem;
+    width: 100%;
+    height: 5rem;
+    transition: all .5s;
+    background: none;
+    backdrop-filter: blur(10px);
+    border-radius: .5rem;
+    display: flex;
+    border: solid;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-carrito img{
+    height: 4rem;
+    object-fit: cover;
+
+}
+
+.card-body-carrito{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+.total-carrito{
+    padding: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border: solid;
+    border-radius: .5rem;
+}
+.total-carrito p {
+    margin: 0;
+}
+
 @media screen and (max-width:768px) {
     footer{
         flex-direction: column;

@@ -105,13 +105,4 @@ function crearCards(array) {
       `
       contenedorFarmacia.innerHTML = newTemplate
    }
-
-   
-   
-   
-   // if (array.length == 0){
-   //    templateCard +=`
-   //    <h3 class="text-center">No encontramos resultado de busqueda para "${busqueda}"</h3>
-   //    `
-   // }
 }
